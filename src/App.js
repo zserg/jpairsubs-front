@@ -5,10 +5,21 @@ import { Container, Row, Col } from 'reactstrap';
 import Post from './components/Post';
 import Header from './components/Header';
 import SideCard from './components/SideCard';
+import Movies from './components/Movies';
+
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 import logo from './logo.svg';
 import './App.css';
 const App = () => (
+ <Router>
   <Fragment>
 
     <Header />
@@ -21,8 +32,11 @@ const App = () => (
             <SideCard />
           </Col>
 
+
+
           <Col xs={{ order: 1 }} md={{ size: 7, offset: 1 }} tag="section" className="py-5 mb-5 py-md-0 mb-md-0">
-            <Post />
+            <Route exact path="/" component={Post}/>
+            <Route path="/movies" component={Movies}/>
           </Col>
 
         </Row>
@@ -30,6 +44,7 @@ const App = () => (
     </main>
 
   </Fragment>
+ </Router>
 );
 
 
